@@ -5,12 +5,12 @@ clc
 format long
 
 epsilon = 1e-8; % Tolleranza
-max_iter = 100;
+max_iter = 1000;
 
-x_old = -5; % Punto iniziale
+x_old = 0.01; % Punto iniziale
 x_new = f(x_old);
 idx = 0;
-while(abs(x_old - x_new) > epsilon || idx > max_iter)
+while(abs(x_old - x_new) > epsilon && idx < max_iter)
     x_old = x_new;
     x_new = f(x_old);
     
