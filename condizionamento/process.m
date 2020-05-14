@@ -9,7 +9,7 @@ A2(1,1) = A2(1,1) + 0.01;
 x2 = A2\b;
 
 % Valutiamo quanto si discostano tra loro le due soluzioni
-norm(x1 - x2);
+norm(x1 - x2, 'inf');
 
 % Calcoliamo l'indice di condizionamento di N sistemi che abbiano come
 % matrice dei coefficienti la matrice di Hilbert
@@ -20,5 +20,9 @@ for order = 1:N
     K(order) = norm(A)*norm(inv(A));
 end
 plot(K, 'x--');
+
+% Visualizziamo le matrici di Hilbert
+n_rows = 5;
+n_cols = N / n_rows;
 
 

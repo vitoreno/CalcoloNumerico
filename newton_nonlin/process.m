@@ -2,6 +2,7 @@ clear all
 X = [-5:0.2:5];
 Y1 = X.^2 - 4;
 Y2 = X .^3 + 12;
+
 figure
 hold on
 

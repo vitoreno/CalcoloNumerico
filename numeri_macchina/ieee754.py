@@ -1,7 +1,12 @@
 import struct
+import sys
+
 
 def binary(num):
-    bn = ''.join(bin(ord(c)).replace('0b', '').rjust(8, '0') for c in struct.pack('!f', num))
+    if sys.version_info.major == 3:
+        bn = ''.join(bin(c).replace('0b', '').rjust(8, '0') for c in struct.pack('!f', num))
+    else:
+        bn = ''.join(bin(ord(c)).replace('0b', '').rjust(8, '0') for c in struct.pack('!f', num))
     return {'segno': bn[0], 'esponente': bn[1:9], 'mantissa': bn[9:]}
 
 
